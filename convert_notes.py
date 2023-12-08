@@ -266,7 +266,7 @@ def prepend_code_block(line: str) -> list[str]:
     """
     out = []
 
-    match = re.match(r"(\t*)-[ *]```(\w+)", line)
+    match = re.match(r"(\t*)-[ *]```(\w*)", line)
     if match is not None:
         tabs = match[1]
         language_name = match[2]
@@ -444,7 +444,7 @@ for fpath in new_paths:
             line = update_image_dimensions(line)
 
             # Remove block links and embeds
-            line = remove_block_links_embeds(line)
+            #line = remove_block_links_embeds(line)
 
             # Self-explanatory
             line = add_space_after_hyphen_that_ends_line(line)
